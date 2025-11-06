@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.radial-mask {
+  position: relative;
+  isolation: isolate;
+}
+
+.radial-mask::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(56, 189, 248, 0.28),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(14, 165, 233, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(96, 165, 250, 0.32),
+      transparent 55%
+    );
+  filter: blur(40px);
+  z-index: -1;
+  opacity: 0.9;
+}
